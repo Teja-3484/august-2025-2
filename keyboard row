@@ -1,0 +1,11 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        refer = ["qwertyuiop","asdfghjkl","zxcvbnm"]
+        result = []
+        for word in words :
+            temp_word = word.lower()
+            for row in refer :
+                if all(char in row for char in temp_word):
+                    result.append(word)
+                    break
+        return result
