@@ -1,0 +1,23 @@
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        f = float('-inf')
+        s = float('-inf')
+        t = float('-inf')
+
+        for i in nums:
+            if i == f or i == s or i == t:   # skip duplicates
+                continue
+            if i > f:
+                t = s
+                s = f
+                f = i
+            elif i > s:
+                t = s
+                s = i
+            elif i > t:
+                t = i
+
+        # if third maximum exists
+        if t != float('-inf'):
+            return t
+        return f
